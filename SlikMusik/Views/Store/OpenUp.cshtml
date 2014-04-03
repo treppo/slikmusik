@@ -1,0 +1,13 @@
+﻿@model SlikMusik.Domain.Entities.Store
+
+@{
+    ViewBag.Title = "Open up your own store";
+}
+
+<h2>Open up your own store</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <input type="Submit" value="Open It Up!" />
+}
