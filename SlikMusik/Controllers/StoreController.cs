@@ -1,36 +1,45 @@
 ﻿using System.Web.Mvc;
-using SlikMusik.Domain.Entities;
+using SlikMusik.Domain;
 
 namespace SlikMusik.Controllers
 {
     public class StoreController : Controller
     {
-        // GET: Store/Details/5
+        private readonly UserRequestListener userRequestListener;
+        private EfStoreRegistry storeRegistry;
+
+        public StoreController()
+        {
+            storeRegistry = new EfStoreRegistry();
+            userRequestListener = new Marketplace(storeRegistry);
+        }
+
         public ActionResult Visit(int id)
         {
             return View();
         }
 
-        // GET: Store/Create
         public ActionResult OpenUp()
         {
             return View(new Store());
         }
 
-        // POST: Store/Create
         [HttpPost]
         public ActionResult OpenUp(Store store)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                userRequestListener.OpenUp(store);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Visit", new {id = store.Id});
             }
-            catch
-            {
-                return View();
-            }
+
+            return View();
+        }
+
+        public ActionResult List()
+        {
+            return View();
         }
     }
 }
