@@ -13,5 +13,10 @@
         {
             storeRegistry.Add(store);
         }
+
+        public Store Visit(int id)
+        {
+            return storeRegistry.Visit(id);
+        }
     }
 }

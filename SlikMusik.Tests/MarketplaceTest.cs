@@ -8,6 +8,17 @@ namespace SlikMusik.Tests
     public class MarketplaceTest
     {
         readonly MockFactory factory = new MockFactory();
+        private Marketplace marketplace;
+        private Mock<StoreRegistry> storeRegistry;
+        private Store store;
+
+        [SetUp]
+        public void Setup()
+        {
+            store = new Store();
+            storeRegistry = factory.CreateMock<StoreRegistry>();
+            marketplace = new Marketplace(storeRegistry.MockObject);
+        }
 
         [TearDown]
         public void Cleanup()
@@ -19,13 +30,21 @@ namespace SlikMusik.Tests
         [Test]
         public void OpensUpAStore()
         {
-            var store = new Store();
-            var storeRegistry = factory.CreateMock<StoreRegistry>();
-            var marketplace = new Marketplace(storeRegistry.MockObject);
-
             storeRegistry.Expects.One.MethodWith(_ => _.Add(store));
 
             marketplace.OpenUp(store);
+        }
+
+        [Test]
+        public void VisitStore()
+        {
+            int id = 1;
+            store.Id = id;
+            storeRegistry.Expects.One.MethodWith(_ => _.Visit(id)).Will(Return.Value(store));
+
+            var s = marketplace.Visit(id);
+
+            Assert.AreEqual(store, s);
         }
     }
 }

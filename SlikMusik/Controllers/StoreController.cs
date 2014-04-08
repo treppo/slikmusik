@@ -6,7 +6,7 @@ namespace SlikMusik.Controllers
     public class StoreController : Controller
     {
         private readonly UserRequestListener userRequestListener;
-        private EfStoreRegistry storeRegistry;
+        private StoreRegistry storeRegistry;
 
         public StoreController()
         {
@@ -16,7 +16,8 @@ namespace SlikMusik.Controllers
 
         public ActionResult Visit(int id)
         {
-            return View();
+            var store = userRequestListener.Visit(id);
+            return View(store);
         }
 
         public ActionResult OpenUp()
