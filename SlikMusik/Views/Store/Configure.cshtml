@@ -1,0 +1,17 @@
+﻿@model SlikMusik.Domain.Store
+
+@{
+    ViewBag.Title = "Configure your store";
+}
+
+<h2>Configure your store</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorForModel()
+    <button type="submit">Save Changes</button>
+}
+
+@Html.ActionLink("Back to Store", "Visit", new { id = Model.Id })

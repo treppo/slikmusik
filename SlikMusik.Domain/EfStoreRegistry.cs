@@ -1,3 +1,4 @@
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace SlikMusik.Domain
@@ -25,6 +26,12 @@ namespace SlikMusik.Domain
         public IQueryable<Store> ListAllStores()
         {
             return context.Stores;
+        }
+
+        public void Change(Store store)
+        {
+            context.Stores.AddOrUpdate(store);
+            context.SaveChanges();
         }
     }
 }

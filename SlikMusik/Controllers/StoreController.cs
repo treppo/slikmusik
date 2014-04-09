@@ -25,7 +25,7 @@ namespace SlikMusik.Controllers
             {
                 userRequestListener.OpenUp(store);
 
-                return RedirectToAction("Visit", new {id = store.Id});
+                return RedirectToAction("Visit", new { id = store.Id});
             }
 
             return View();
@@ -35,6 +35,25 @@ namespace SlikMusik.Controllers
         {
             var stores = userRequestListener.ListAllStores();
             return View(stores);
+        }
+
+        public ActionResult Configure(int id)
+        {
+            var store = userRequestListener.FindStore(id);
+            return View(store);
+        }
+
+        [HttpPost]
+        public ActionResult Configure(Store store)
+        {
+            if (ModelState.IsValid)
+            {
+                userRequestListener.Change(store);
+
+                return RedirectToAction("Visit", new { id = store.Id });
+            }
+
+            return View();
         }
     }
 }

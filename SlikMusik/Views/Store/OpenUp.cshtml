@@ -8,6 +8,8 @@
 
 @using (Html.BeginForm())
 {
+    @Html.AntiForgeryToken()
+    
     @Html.EditorForModel()
-    <input type="Submit" value="Open It Up!" />
+    <button type="submit">Open It Up!</button>
 }

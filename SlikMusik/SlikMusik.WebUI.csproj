@@ -104,6 +104,7 @@
     <Content Include="Views\Store\List.cshtml" />
     <Content Include="Views\Store\OpenUp.cshtml" />
     <Content Include="Views\Store\Visit.cshtml" />
+    <Content Include="Views\Store\Configure.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
