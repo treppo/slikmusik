@@ -83,7 +83,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MarketplaceTest.cs" />
+    <Compile Include="EfStoreRegistryTest.cs" />
     <Compile Include="NMock3\NMockTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

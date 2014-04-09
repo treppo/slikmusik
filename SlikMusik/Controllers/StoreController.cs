@@ -5,18 +5,11 @@ namespace SlikMusik.Controllers
 {
     public class StoreController : Controller
     {
-        private readonly UserRequestListener userRequestListener;
-        private StoreRegistry storeRegistry;
-
-        public StoreController()
-        {
-            storeRegistry = new EfStoreRegistry();
-            userRequestListener = new Marketplace(storeRegistry);
-        }
+        private readonly UserRequestListener userRequestListener = new EfStoreRegistry(new EfDbContext());
 
         public ActionResult Visit(int id)
         {
-            var store = userRequestListener.Visit(id);
+            var store = userRequestListener.FindStore(id);
             return View(store);
         }
 
@@ -40,7 +33,8 @@ namespace SlikMusik.Controllers
 
         public ActionResult List()
         {
-            return View();
+            var stores = userRequestListener.ListAllStores();
+            return View(stores);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿@model IQueryable<SlikMusik.Domain.Store>
+﻿@using SlikMusik.Domain
+@model IQueryable<Store>
 
 @{
     ViewBag.Title = "Go on, create your own music store";
@@ -9,3 +10,10 @@
 
 @Html.ActionLink("Open up store now!", "OpenUp", "Store")
 <small>It's free!</small>
+
+<ul>
+    @foreach (var store in Model)
+    {
+        <li>@Html.ActionLink(store.Name, "Visit", new { id = store.Id })</li>
+    }
+</ul>

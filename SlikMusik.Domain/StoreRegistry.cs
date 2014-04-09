@@ -1,9 +1,12 @@
 ﻿
+using System.Linq;
+
 namespace SlikMusik.Domain
 {
     public interface StoreRegistry
     {
-        void Add(Store store);
-        Store Visit(int id);
+        void OpenUp(Store store);
+        Store FindStore(int id);
+        IQueryable<Store> ListAllStores();
     }
 }
