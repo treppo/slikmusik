@@ -72,7 +72,7 @@ namespace SlikMusik.Tests
 
             storeRegistry.AddToStore(merch);
 
-            Assert.Contains(merch, storeRegistry.FindStore(store.Id).Merchandizes);
+            Assert.Contains(merch, storeRegistry.FindStore(store.Id).Merchandize);
         }
 
         private Merchandize BuildMerch(Store store)

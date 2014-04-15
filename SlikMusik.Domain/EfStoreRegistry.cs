@@ -35,7 +35,7 @@ namespace SlikMusik.Domain
         public void AddToStore(Merchandize merch)
         {
             var store = FindStore(merch.StoreId);
-            store.Merchandizes.Add(merch);
+            store.Merchandize.Add(merch);
             context.SaveChanges();
         }
     }

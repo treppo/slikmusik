@@ -7,11 +7,11 @@ namespace SlikMusik.Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual List<Merchandize> Merchandizes { get; set; }
+        public virtual List<Merchandize> Merchandize { get; set; }
 
         public Store()
         {
-            Merchandizes = new List<Merchandize>();
+            Merchandize = new List<Merchandize>();
         }
     }
 }
