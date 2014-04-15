@@ -5,11 +5,11 @@ namespace SlikMusik.Controllers
 {
     public class StoreController : Controller
     {
-        private readonly UserRequestListener userRequestListener = new EfStoreRegistry(new EfDbContext());
+        private readonly StoreRegistry storeRegistry = new EfStoreRegistry(new EfDbContext());
 
         public ActionResult Visit(int id)
         {
-            var store = userRequestListener.FindStore(id);
+            var store = storeRegistry.FindStore(id);
             return View(store);
         }
 
@@ -23,7 +23,7 @@ namespace SlikMusik.Controllers
         {
             if (ModelState.IsValid)
             {
-                userRequestListener.OpenUp(store);
+                storeRegistry.OpenUp(store);
 
                 return RedirectToAction("Visit", new { id = store.Id});
             }
@@ -33,13 +33,13 @@ namespace SlikMusik.Controllers
 
         public ActionResult List()
         {
-            var stores = userRequestListener.ListAllStores();
+            var stores = storeRegistry.ListAllStores();
             return View(stores);
         }
 
         public ActionResult Configure(int id)
         {
-            var store = userRequestListener.FindStore(id);
+            var store = storeRegistry.FindStore(id);
             return View(store);
         }
 
@@ -48,7 +48,7 @@ namespace SlikMusik.Controllers
         {
             if (ModelState.IsValid)
             {
-                userRequestListener.Change(store);
+                storeRegistry.Change(store);
 
                 return RedirectToAction("Visit", new { id = store.Id });
             }

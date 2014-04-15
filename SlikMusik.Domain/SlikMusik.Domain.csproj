@@ -53,8 +53,9 @@
     <Compile Include="Merchandize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Store.cs" />
+    <Compile Include="StoreInventory.cs" />
+    <Compile Include="StoreUserRequestListener.cs" />
     <Compile Include="StoreRegistry.cs" />
-    <Compile Include="UserRequestListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -5,7 +5,7 @@ using SlikMusik.Domain;
 namespace SlikMusik.Tests
 {
     [TestFixture]
-    public class EfStoreRegistryTest
+    public class StoreRegistryTest
     {
         private StoreRegistry storeRegistry;
         private EfDbContext context;
@@ -62,17 +62,6 @@ namespace SlikMusik.Tests
             storeRegistry.Change(store);
 
             Assert.AreEqual("Bar", storeRegistry.FindStore(1).Name);
-        }
-
-        [Test]
-        public void AddMerchandize()
-        {
-            var store = BuildStore();
-            var merch = BuildMerch(store);
-
-            storeRegistry.AddToStore(merch);
-
-            Assert.Contains(merch, storeRegistry.FindStore(store.Id).Merchandize);
         }
 
         private Merchandize BuildMerch(Store store)

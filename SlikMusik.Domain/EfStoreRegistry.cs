@@ -2,7 +2,7 @@ using System.Linq;
 
 namespace SlikMusik.Domain
 {
-    public class EfStoreRegistry : StoreRegistry, UserRequestListener
+    public class EfStoreRegistry : StoreRegistry
     {
         readonly EfDbContext context;
 
@@ -29,13 +29,6 @@ namespace SlikMusik.Domain
 
         public void Change(Store store)
         {
-            context.SaveChanges();
-        }
-
-        public void AddToStore(Merchandize merch)
-        {
-            var store = FindStore(merch.StoreId);
-            store.Merchandize.Add(merch);
             context.SaveChanges();
         }
     }
