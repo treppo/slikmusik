@@ -1,0 +1,15 @@
+﻿@model SlikMusik.Domain.Merchandize
+           
+@{
+    ViewBag.Title = "Add your great merchandize";
+}
+
+<h2>Add your great merchandize</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorForModel()
+    <button type="submit">Add it!</button>
+}

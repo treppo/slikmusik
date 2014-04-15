@@ -8,5 +8,6 @@ namespace SlikMusik.Domain
         Store FindStore(int id);
         IQueryable<Store> ListAllStores();
         void Change(Store store);
+        void AddToStore(Merchandize merch);
     }
 }

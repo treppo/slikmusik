@@ -1,7 +1,18 @@
-﻿@{
+﻿@model SlikMusik.Domain.Store
+
+@{
     ViewBag.Title = "title";
 }
 
 <h2>@Model.Name</h2>
+
+<h3>@Model.Name Stock (@Model.Merchandizes.Count)</h3>
+
+<ul>
+    @foreach (var merchandize in Model.Merchandizes)
+    {
+        <li>@merchandize.Name</li>
+    }
+</ul>
 
 @Html.ActionLink("Configure", "Configure", new { id = Model.Id })

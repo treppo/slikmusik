@@ -64,6 +64,25 @@ namespace SlikMusik.Tests
             Assert.AreEqual("Bar", storeRegistry.FindStore(1).Name);
         }
 
+        [Test]
+        public void AddMerchandize()
+        {
+            var store = BuildStore();
+            var merch = BuildMerch(store);
+
+            storeRegistry.AddToStore(merch);
+
+            Assert.Contains(merch, storeRegistry.FindStore(store.Id).Merchandizes);
+        }
+
+        private Merchandize BuildMerch(Store store)
+        {
+            var merch = new Merchandize();
+            merch.StoreId = store.Id;
+            merch.Name = "Foo";
+            return merch;
+        }
+
         private Store BuildStore()
         {
             var store = new Store();

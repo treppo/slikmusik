@@ -10,10 +10,16 @@ namespace SlikMusik
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Merchandize",
+                url: "Store/{storeId}/Merchandize/{action}/{id}",
+                defaults: new {controller = "Merchandize", action = "Create", storeId = "", id = UrlParameter.Optional}
+                );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Store", action = "List", id = UrlParameter.Optional }
-            );
+                defaults: new {controller = "Store", action = "List", id = UrlParameter.Optional}
+                );
         }
     }
 }

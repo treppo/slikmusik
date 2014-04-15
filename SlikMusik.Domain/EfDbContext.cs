@@ -8,5 +8,6 @@ namespace SlikMusik.Domain
         public EfDbContext() { }
         public EfDbContext(DbConnection connection) : base(connection, true)  { }
         public IDbSet<Store> Stores { get; set; }
+        public IDbSet<Merchandize> Merchandizes { get; set; }
     }
 }

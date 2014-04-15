@@ -1,4 +1,3 @@
-using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace SlikMusik.Domain
@@ -30,7 +29,13 @@ namespace SlikMusik.Domain
 
         public void Change(Store store)
         {
-            context.Stores.AddOrUpdate(store);
+            context.SaveChanges();
+        }
+
+        public void AddToStore(Merchandize merch)
+        {
+            var store = FindStore(merch.StoreId);
+            store.Merchandizes.Add(merch);
             context.SaveChanges();
         }
     }

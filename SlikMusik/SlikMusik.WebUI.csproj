@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\MerchandizeController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -105,6 +106,7 @@
     <Content Include="Views\Store\OpenUp.cshtml" />
     <Content Include="Views\Store\Visit.cshtml" />
     <Content Include="Views\Store\Configure.cshtml" />
+    <Content Include="Views\Merchandize\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
