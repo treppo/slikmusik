@@ -11,8 +11,8 @@
 <ul>
     @foreach (var merchandize in Model.Merchandize)
     {
-        <li>@merchandize.Name</li>
+        <li>@Html.ActionLink(merchandize.Name, "Show", "Merchandize", new {storeId = Model.Id, id = merchandize.Id}, null)</li>
     }
 </ul>
 
-@Html.ActionLink("Configure", "Configure", new { id = Model.Id })
+@Html.ActionLink("Configure", "Configure", new {id = Model.Id})
