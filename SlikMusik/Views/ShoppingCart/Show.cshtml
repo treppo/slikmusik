@@ -1,0 +1,14 @@
+﻿@model SlikMusik.Domain.ShoppingCart
+
+@{
+    ViewBag.Title = "Your shopping cart";
+}
+
+<h2>Your shopping cart</h2>
+
+<ul>
+    @foreach (var item in Model.Content)
+    {
+        <li>@item.Name</li>
+    }
+</ul>

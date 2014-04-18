@@ -8,29 +8,24 @@ namespace SlikMusik.Controllers
         private readonly StoreUserRequestListener userRequestListener =
             new StoreClerk(new EfInventory(new EfDbContext()));
 
+        [HttpPost]
         public ActionResult Add(int id)
         {
-            userRequestListener.AddToShoppingCart(shoppingCart, id);
-            return RedirectToAction("View");
+            userRequestListener.AddToShoppingCart(ShoppingCart, id);
+            return RedirectToAction("Show");
         }
 
-        public ActionResult View()
+        public ActionResult Show()
         {
-            throw new System.NotImplementedException();
+            return View(ShoppingCart);
         }
 
-        private ShoppingCart shoppingCart
+        private ShoppingCart ShoppingCart
         {
             get
             {
-                var cart = (ShoppingCart) Session["ShoppingCart"];
-
-                if (cart == null)
-                {
-                    cart = new ShoppingCart();
-                    Session["ShoppingCart"] = cart;
-                }
-
+                var cart = SessionShoppingCart.From((ShoppingCart) Session["ShoppingCart"]);
+                Session["ShoppingCart"] = cart;
                 return cart;
             }
         }

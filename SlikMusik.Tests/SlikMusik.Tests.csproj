@@ -84,14 +84,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EfInventoryTest.cs" />
+    <Compile Include="SessionShoppingCartTest.cs" />
     <Compile Include="StoreClerkTest.cs" />
     <Compile Include="StoreRegistryTest.cs" />
-    <Compile Include="NMock3\NMockTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="NMock3\NMock3 Cheat Sheet.pdf" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

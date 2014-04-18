@@ -56,6 +56,13 @@ namespace SlikMusik.Tests
         [Test]
         public void AddsMerchandizeToShoppingCart()
         {
+            var cart = factory.CreateMock<ShoppingCart>();
+            var merch = BuildMerch(BuildStore());
+
+            inventoryMock.Expects.One.MethodWith(_ => _.Retrieve(merch.Id)).WillReturn(merch);
+            cart.Expects.One.MethodWith(_ => _.Add(merch));
+            
+            storeClerk.AddToShoppingCart(cart.MockObject, merch.Id);
         }
 
         private static Store BuildStore()

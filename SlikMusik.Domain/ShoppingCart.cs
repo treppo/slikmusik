@@ -1,6 +1,10 @@
-﻿namespace SlikMusik.Domain
+﻿using System.Collections.Generic;
+
+namespace SlikMusik.Domain
 {
-    public class ShoppingCart
+    public interface ShoppingCart
     {
+        void Add(Merchandize merch);
+        IEnumerable<Merchandize> Content { get; }
     }
 }

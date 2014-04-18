@@ -21,7 +21,7 @@
 
         public void AddToShoppingCart(ShoppingCart shoppingCart, int merchandizeId)
         {
-            throw new System.NotImplementedException();
+            shoppingCart.Add(GetMerchandize(merchandizeId));
         }
     }
 }
