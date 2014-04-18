@@ -83,6 +83,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EfInventoryTest.cs" />
     <Compile Include="StoreClerkTest.cs" />
     <Compile Include="StoreRegistryTest.cs" />
     <Compile Include="NMock3\NMockTest.cs" />

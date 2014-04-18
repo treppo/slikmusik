@@ -5,7 +5,8 @@ namespace SlikMusik.Controllers
 {
     public class MerchandizeController : Controller
     {
-        private readonly StoreUserRequestListener userRequestListener = new StoreClerk(new EfStoreRegistry(new EfDbContext()));
+        private readonly StoreUserRequestListener userRequestListener =
+            new StoreClerk(new EfInventory(new EfDbContext()));
 
         public ActionResult Create(int storeId)
         {
@@ -17,16 +18,15 @@ namespace SlikMusik.Controllers
         {
             if (ModelState.IsValid)
             {
-                userRequestListener.Add(merch);
+                userRequestListener.AddToInventory(merch);
                 return RedirectToAction("Visit", "Store", new {id = merch.StoreId});
             }
             return View();
         }
 
         public ActionResult Show(int storeId, int id)
-         {
-            var merch = userRequestListener.GetMerchandize(storeId, id);
-            return View(merch);
+        {
+            return View(userRequestListener.GetMerchandize(id));
         }
     }
 }

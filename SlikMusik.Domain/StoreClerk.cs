@@ -1,27 +1,27 @@
-﻿using System.Linq;
-
-namespace SlikMusik.Domain
+﻿namespace SlikMusik.Domain
 {
     public class StoreClerk : StoreUserRequestListener
     {
-        private readonly StoreRegistry registry;
+        private readonly Inventory inventory;
 
-        public StoreClerk(StoreRegistry registry)
+        public StoreClerk(Inventory inventory)
         {
-            this.registry = registry;
+            this.inventory = inventory;
         }
 
-        public void Add(Merchandize merch)
+        public void AddToInventory(Merchandize merch)
         {
-            var store = registry.FindStore(merch.StoreId);
-            store.Merchandize.Add(merch);
-            registry.Change(store);
+            inventory.Add(merch);
         }
 
-        public Merchandize GetMerchandize(int storeId, int merchandizeId)
+        public Merchandize GetMerchandize(int merchandizeId)
         {
-            var store = registry.FindStore(storeId);
-            return store.Merchandize.First(merch => merch.Id == merchandizeId);
+            return inventory.Retrieve(merchandizeId);
+        }
+
+        public void AddToShoppingCart(ShoppingCart shoppingCart, int merchandizeId)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

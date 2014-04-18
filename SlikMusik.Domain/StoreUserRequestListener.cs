@@ -2,7 +2,8 @@
 {
     public interface StoreUserRequestListener
     {
-        void Add(Merchandize merch);
-        Merchandize GetMerchandize(int storeId, int merchandizeId);
+        void AddToInventory(Merchandize merch);
+        Merchandize GetMerchandize(int merchandizeId);
+        void AddToShoppingCart(ShoppingCart shoppingCart, int merchandizeId);
     }
 }

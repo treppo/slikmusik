@@ -24,21 +24,12 @@ namespace SlikMusik.Tests
         }
 
         [Test]
-        public void OpenUpAStore()
-        {
-            var store =  BuildStore();
-
-            Assert.Contains(store, context.Stores.ToList());
-        }
-
-        [Test]
-        public void FindAStore()
+        public void OpenUpAndFindAStore()
         {
             var store = BuildStore();
+            var found = storeRegistry.FindStore(1);
 
-            var s = storeRegistry.FindStore(1);
-
-            Assert.AreEqual(store, s);
+            Assert.AreEqual(store, found);
         }
 
         [Test]

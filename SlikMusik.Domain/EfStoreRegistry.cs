@@ -19,7 +19,7 @@ namespace SlikMusik.Domain
 
         public Store FindStore(int id)
         {
-            return context.Stores.First(store => store.Id == id);
+            return context.Stores.Find(id);
         }
 
         public IQueryable<Store> ListAllStores()
