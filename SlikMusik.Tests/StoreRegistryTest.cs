@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SlikMusik.Domain;
 
 namespace SlikMusik.Tests
@@ -17,16 +16,10 @@ namespace SlikMusik.Tests
             storeRegistry = new EfStoreRegistry(context);
         }
 
-        [TearDown]
-        public void Cleanup()
-        {
-
-        }
-
         [Test]
         public void OpenUpAndFindAStore()
         {
-            var store = BuildStore();
+            var store = OpenUpStore();
             var found = storeRegistry.FindStore(1);
 
             Assert.AreEqual(store, found);
@@ -35,19 +28,19 @@ namespace SlikMusik.Tests
         [Test]
         public void ListAllStores()
         {
-            var store = BuildStore();
-            var store2 = BuildStore();
+            var store = OpenUpStore();
+            var store2 = OpenUpStore();
 
             var set = storeRegistry.ListAllStores();
 
-            Assert.Contains(store, set.ToList());
-            Assert.Contains(store2, set.ToList());
+            Assert.Contains(store, set);
+            Assert.Contains(store2, set);
         }
 
         [Test]
         public void ChangeAStore()
         {
-            var store = BuildStore();
+            var store = OpenUpStore();
             store.Name = "Bar";
 
             storeRegistry.Change(store);
@@ -55,19 +48,9 @@ namespace SlikMusik.Tests
             Assert.AreEqual("Bar", storeRegistry.FindStore(1).Name);
         }
 
-        private Merchandize BuildMerch(Store store)
+        private Store OpenUpStore()
         {
-            var merch = new Merchandize();
-            merch.StoreId = store.Id;
-            merch.Name = "Foo";
-            return merch;
-        }
-
-        private Store BuildStore()
-        {
-            var store = new Store();
-            store.Id = 1;
-            store.Name = "Foo";
+            var store = new Store {Id = 1, Name = "Foo"};
             storeRegistry.OpenUp(store);
             return store;
         }

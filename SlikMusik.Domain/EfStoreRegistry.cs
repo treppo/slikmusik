@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 
 namespace SlikMusik.Domain
@@ -22,9 +23,9 @@ namespace SlikMusik.Domain
             return context.Stores.Find(id);
         }
 
-        public IQueryable<Store> ListAllStores()
+        public IList ListAllStores()
         {
-            return context.Stores;
+            return context.Stores.ToList();
         }
 
         public void Change(Store store)

@@ -13,7 +13,7 @@ namespace SlikMusik.Domain
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Store>()
-                .HasMany(store => store.Merchandize)
+                .HasMany(store => store.Inventory)
                 .WithRequired()
                 .HasForeignKey(merchandize => merchandize.StoreId);
         }

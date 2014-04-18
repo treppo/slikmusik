@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SlikMusik.Domain
 {
@@ -7,11 +6,16 @@ namespace SlikMusik.Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual List<Merchandize> Merchandize { get; set; }
+        public virtual List<Merchandize> Inventory { get; set; }
+
+        public int InventorySize
+        {
+            get { return Inventory.Count; }
+        }
 
         public Store()
         {
-            Merchandize = new List<Merchandize>();
+            Inventory = new List<Merchandize>();
         }
     }
 }
