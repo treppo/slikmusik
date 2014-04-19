@@ -8,10 +8,9 @@
 </head>
 <body>
     @Html.ActionLink("SlikMusik", "List", "Store", null, new { @class = "brand" })
+    @Html.ActionLink("Get aboard", "Create", "User")
     @Html.ActionLink("Your shopping cart", "Show", "ShoppingCart")
 
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+    @RenderBody()
 </body>
 </html>

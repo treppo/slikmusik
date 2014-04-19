@@ -1,0 +1,24 @@
+﻿@model SlikMusik.Models.CreateUser
+
+@{
+    ViewBag.Title = "Get aboard the MS SlikMusik";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.ValidationSummary(false)
+@using (Html.BeginForm())
+{
+    <label>
+        Name
+        @Html.TextBoxFor(x => x.Name)
+    </label>
+    <label>
+        Email
+        @Html.TextBoxFor(x => x.Email)
+    </label>
+    <label>Password
+        @Html.PasswordFor(x => x.Password)
+    </label>
+    <button type="submit">Get me aboard!</button>
+}

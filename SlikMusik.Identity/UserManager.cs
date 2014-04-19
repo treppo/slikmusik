@@ -18,6 +18,22 @@ namespace SlikMusik.Identity
         {
             var db = context.Get<IdentityDbContext>();
             var manager = new UserManager(new UserStore<User>(db));
+
+            manager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 6,
+                RequireNonLetterOrDigit = true,
+                RequireDigit = true,
+                RequireLowercase = true,
+                RequireUppercase = true
+            };
+
+            manager.UserValidator = new UserValidator<User>(manager)
+            {
+                AllowOnlyAlphanumericUserNames = true,
+                RequireUniqueEmail = true
+            };
+
             return manager;
         }
     }
