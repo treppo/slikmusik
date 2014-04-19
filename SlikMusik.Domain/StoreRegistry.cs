@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 
 namespace SlikMusik.Domain
 {
@@ -6,7 +6,7 @@ namespace SlikMusik.Domain
     {
         void OpenUp(Store store);
         Store FindStore(int id);
-        IList ListAllStores();
+        IList<Store> ListAllStores();
         void Change(Store store);
     }
 }

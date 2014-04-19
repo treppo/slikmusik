@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections;
+using NUnit.Framework;
 using SlikMusik.Domain;
 
 namespace SlikMusik.Tests
@@ -33,8 +34,8 @@ namespace SlikMusik.Tests
 
             var set = storeRegistry.ListAllStores();
 
-            Assert.Contains(store, set);
-            Assert.Contains(store2, set);
+            Assert.Contains(store, (ICollection) set);
+            Assert.Contains(store2, (ICollection) set);
         }
 
         [Test]

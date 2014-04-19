@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SlikMusik.Domain
@@ -23,7 +23,7 @@ namespace SlikMusik.Domain
             return context.Stores.Find(id);
         }
 
-        public IList ListAllStores()
+        public IList<Store> ListAllStores()
         {
             return context.Stores.ToList();
         }
