@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SlikMusik.Domain
+namespace SlikMusik.Core
 {
     public class EfStoreRegistry : StoreRegistry
     {

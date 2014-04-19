@@ -7,8 +7,8 @@
     <ProjectGuid>{5E457DB2-DAEC-4C96-8002-A2328CBF39F2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SlikMusik.Domain</RootNamespace>
-    <AssemblyName>SlikMusik.Domain</AssemblyName>
+    <RootNamespace>SlikMusik.Core</RootNamespace>
+    <AssemblyName>SlikMusik.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

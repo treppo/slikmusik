@@ -1,7 +1,7 @@
 ﻿using System.Data.Common;
 using System.Data.Entity;
 
-namespace SlikMusik.Domain
+namespace SlikMusik.Core
 {
     public class EfDbContext : DbContext
     {

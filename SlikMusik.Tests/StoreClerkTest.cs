@@ -1,6 +1,6 @@
 ﻿using NMock;
 using NUnit.Framework;
-using SlikMusik.Domain;
+using SlikMusik.Core;
 
 namespace SlikMusik.Tests
 {

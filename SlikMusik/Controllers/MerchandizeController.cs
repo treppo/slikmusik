@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using SlikMusik.Domain;
+using SlikMusik.Core;
 
 namespace SlikMusik.Controllers
 {

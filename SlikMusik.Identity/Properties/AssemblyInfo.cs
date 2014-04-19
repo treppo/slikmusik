@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SlikMusik.Domain")]
+[assembly: AssemblyTitle("Identity")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SlikMusik.Domain")]
+[assembly: AssemblyProduct("Identity")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b083c121-c6fe-41bc-825f-3894f5237cdd")]
+[assembly: Guid("c6fcd86b-36ce-4451-bcfd-c4c49640c1cc")]
 
 // Version information for an assembly consists of the following four values:
 //

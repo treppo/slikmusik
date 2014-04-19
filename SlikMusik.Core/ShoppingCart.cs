@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SlikMusik.Domain
+namespace SlikMusik.Core
 {
     public interface ShoppingCart
     {

@@ -95,9 +95,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlikMusik.Domain\SlikMusik.Domain.csproj">
+    <ProjectReference Include="..\SlikMusik.Core\SlikMusik.Core.csproj">
       <Project>{5e457db2-daec-4c96-8002-a2328cbf39f2}</Project>
-      <Name>SlikMusik.Domain</Name>
+      <Name>SlikMusik.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

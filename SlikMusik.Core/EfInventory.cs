@@ -1,4 +1,4 @@
-﻿namespace SlikMusik.Domain
+﻿namespace SlikMusik.Core
 {
     public class EfInventory : Inventory
     {
