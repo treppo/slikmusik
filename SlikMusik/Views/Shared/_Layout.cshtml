@@ -20,9 +20,15 @@
             <section class="top-bar-section">
                 <!-- Right Nav Section -->
                 <ul class="right">
-                    <li>@Html.ActionLink("Login", "Login", "User")</li>
-                    <li>@Html.ActionLink("Logout", "Logout", "User")</li>
-                    <li>@Html.ActionLink("Get aboard", "Create", "User")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Logout", "Logout", "User")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "User")</li>
+                        <li>@Html.ActionLink("Get aboard and register", "Create", "User")</li>
+                    }
                     <li>@Html.ActionLink("Your shopping cart", "Show", "ShoppingCart")</li>
                 </ul>
             </section> 
