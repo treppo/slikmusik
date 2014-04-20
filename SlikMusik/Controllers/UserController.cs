@@ -27,6 +27,7 @@ namespace SlikMusik.Controllers
 
                 if (result.Succeeded)
                 {
+                    await SignIn(user);
                     return Redirect("/");
                 }
 
@@ -55,15 +56,19 @@ namespace SlikMusik.Controllers
                 }
                 else
                 {
-                    var ident =
-                        await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-                    AuthenticationManager.SignOut();
-                    AuthenticationManager.SignIn(new AuthenticationProperties {IsPersistent = false}, ident);
+                    await SignIn(user);
                     return Redirect(returnUrl);
                 }
             }
 
             return View(userDetails);
+        }
+
+        private async Task SignIn(User user)
+        {
+            var ident = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            AuthenticationManager.SignOut();
+            AuthenticationManager.SignIn(new AuthenticationProperties {IsPersistent = false}, ident);
         }
 
         public ActionResult Logout()
