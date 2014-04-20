@@ -6,7 +6,7 @@ namespace SlikMusik.Core
     {
         void OpenUp(Store store);
         Store FindStore(int id);
-        IList<Store> ListAllStores();
+        IEnumerable<Store> ListAllStores();
         void Change(Store store);
     }
 }

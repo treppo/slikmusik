@@ -23,9 +23,9 @@ namespace SlikMusik.Core
             return context.Stores.Find(id);
         }
 
-        public IList<Store> ListAllStores()
+        public IEnumerable<Store> ListAllStores()
         {
-            return context.Stores.ToList();
+            return context.Stores.OrderBy(store => store.Name);
         }
 
         public void Change(Store store)

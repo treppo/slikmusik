@@ -13,9 +13,23 @@ namespace SlikMusik.Core
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Store>()
+                .Ignore(store => store.InventorySize)
+                .Property(store => store.UserId)
+                .IsRequired();
+
+            modelBuilder.Entity<Store>()
+                .Property(store => store.Name)
+                .IsRequired();
+
+            modelBuilder.Entity<Store>()
                 .HasMany(store => store.Inventory)
                 .WithRequired()
-                .HasForeignKey(merchandize => merchandize.StoreId);
+                .HasForeignKey(merchandize => merchandize.StoreId)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Merchandize>()
+                .Property(merch => merch.Name)
+                .IsRequired();
         }
     }
 }
