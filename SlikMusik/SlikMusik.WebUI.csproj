@@ -137,6 +137,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CreateUser.cs" />
+    <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,7 @@
     <Content Include="Views\Merchandize\Show.cshtml" />
     <Content Include="Views\ShoppingCart\Show.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,24 @@
+﻿@model SlikMusik.Models.LoginUser
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+    <label>
+        Name
+        @Html.TextBoxFor(x => x.Name)
+    </label>
+    <label>
+        Password
+        @Html.PasswordFor(x => x.Password)
+    </label>
+    <button type="submit">Log In</button>
+}
