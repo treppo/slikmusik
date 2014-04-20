@@ -19,8 +19,8 @@ namespace SlikMusik.Tests
         [Test]
         public void AddsAndRetrievesMerchandize()
         {
-            var store = new Store {Id = 1};
-            var merch = new Merchandize {Id = 1, Store = store};
+            var store = new Store {Id = 1, Name = "Foo", UserId = "1"};
+            var merch = new Merchandize {Id = 1, Name = "Bar", Store = store};
 
             inventory.Add(merch);
             var retrieved = inventory.Retrieve(merch.Id);

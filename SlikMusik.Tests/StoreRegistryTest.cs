@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using NUnit.Framework;
 using SlikMusik.Core;
 
@@ -32,10 +32,10 @@ namespace SlikMusik.Tests
             var store = OpenUpStore();
             var store2 = OpenUpStore();
 
-            var set = storeRegistry.ListAllStores();
+            var list = storeRegistry.ListAllStores().ToList();
 
-            Assert.Contains(store, (ICollection) set);
-            Assert.Contains(store2, (ICollection) set);
+            Assert.Contains(store, list);
+            Assert.Contains(store2, list);
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace SlikMusik.Tests
 
         private Store OpenUpStore()
         {
-            var store = new Store {Id = 1, Name = "Foo"};
+            var store = new Store {Id = 1, Name = "Foo", UserId = "1"};
             storeRegistry.OpenUp(store);
             return store;
         }
