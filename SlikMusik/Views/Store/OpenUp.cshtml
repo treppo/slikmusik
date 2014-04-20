@@ -9,7 +9,11 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    @Html.EditorForModel()
+
+    <label>
+        Name
+        @Html.TextBoxFor(store => store.Name)
+    </label>
+
     <button type="submit">Open It Up!</button>
 }

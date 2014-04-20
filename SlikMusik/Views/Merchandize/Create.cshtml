@@ -10,6 +10,11 @@
 {
     @Html.AntiForgeryToken()
 
-    @Html.EditorForModel()
+    @Html.HiddenFor(store => store.StoreId)
+    
+    <label>
+        Name
+        @Html.TextBoxFor(merch => merch.Name)
+    </label>
     <button type="submit">Add it!</button>
 }

@@ -7,10 +7,11 @@
 <h2>Welcome stranger!</h2>
 <p>Why don't you just join the others and open up your own store on this nice music market?</p>
 
-@Html.ActionLink("Open up store now!", "OpenUp", "Store")
+@Html.ActionLink("Open up store now!", "OpenUp", "Store", new {@class = "button"})
 <small>It's free!</small>
 
-<ul>
+<h3>These artists have already open up their store here</h3>
+<ul class="small-block-grid-3">
     @foreach (var store in Model)
     {
         <li>@Html.ActionLink(store.Name, "Visit", new { id = store.Id })</li>

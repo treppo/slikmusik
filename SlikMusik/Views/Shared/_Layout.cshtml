@@ -1,18 +1,34 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - SlikMusik</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    @Html.ActionLink("SlikMusik", "List", "Store", null, new { @class = "brand" })
-    @Html.ActionLink("Login", "Login", "User")
-    @Html.ActionLink("Logout", "Logout", "User")
-    @Html.ActionLink("Get aboard", "Create", "User")
-    @Html.ActionLink("Your shopping cart", "Show", "ShoppingCart")
-
-    @RenderBody()
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - SlikMusik</title>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/normalize.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/foundation.min.css">
+    </head>
+    <body>
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1>@Html.ActionLink("SlikMusik", "List", "Store")</h1> 
+                </li>
+                <li class="toggle-topbar menu-icon">
+                    <a href="#">Menu</a>
+                </li> 
+            </ul>
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="right">
+                    <li>@Html.ActionLink("Login", "Login", "User")</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "User")</li>
+                    <li>@Html.ActionLink("Get aboard", "Create", "User")</li>
+                    <li>@Html.ActionLink("Your shopping cart", "Show", "ShoppingCart")</li>
+                </ul>
+            </section> 
+        </nav>
+        <div class="row">
+            @RenderBody()
+        </div>
+    </body>
 </html>
