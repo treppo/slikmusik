@@ -27,7 +27,7 @@ namespace SlikMusik.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("List", "Store");
+                    return Redirect("/");
                 }
 
                 AddErrorsFromResult(result);
@@ -39,13 +39,6 @@ namespace SlikMusik.Controllers
         {
             ViewBag.returnUrl = returnUrl;
             return View();
-        }
-
-        [Authorize]
-        public ActionResult Logout()
-        {
-            AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -71,6 +64,12 @@ namespace SlikMusik.Controllers
             }
 
             return View(userDetails);
+        }
+
+        public ActionResult Logout()
+        {
+            AuthenticationManager.SignOut();
+            return Redirect("/");
         }
 
         private IAuthenticationManager AuthenticationManager

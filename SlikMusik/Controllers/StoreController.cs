@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using SlikMusik.Core;
 
 namespace SlikMusik.Controllers
@@ -13,16 +14,19 @@ namespace SlikMusik.Controllers
             return View(store);
         }
 
+        [Authorize]
         public ActionResult OpenUp()
         {
             return View(new Store());
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult OpenUp(Store store)
         {
             if (ModelState.IsValid)
             {
+                store.UserId = HttpContext.User.Identity.GetUserId();
                 storeRegistry.OpenUp(store);
 
                 return RedirectToAction("Visit", new { id = store.Id});

@@ -13,6 +13,8 @@ namespace SlikMusik.Core
             get { return Inventory.Count; }
         }
 
+        public string UserId { get; set; }
+
         public Store()
         {
             Inventory = new List<Merchandize>();
