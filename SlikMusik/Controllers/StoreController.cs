@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using SlikMusik.Authorization;
 using SlikMusik.Core;
 
 namespace SlikMusik.Controllers
@@ -41,6 +42,7 @@ namespace SlikMusik.Controllers
             return View(stores);
         }
 
+        [StoreOwnerAuthorization]
         public ActionResult Configure(int id)
         {
             var store = storeRegistry.FindStore(id);
@@ -48,6 +50,7 @@ namespace SlikMusik.Controllers
         }
 
         [HttpPost]
+        [StoreOwnerAuthorization]
         public ActionResult Configure(Store store)
         {
             if (ModelState.IsValid)

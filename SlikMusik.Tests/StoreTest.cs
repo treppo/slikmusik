@@ -16,5 +16,14 @@ namespace SlikMusik.Tests
 
             Assert.AreEqual(1, size);
         }
+
+        [Test]
+        public void HasOwner()
+        {
+            var store = new Store {UserId = "1"};
+
+            Assert.IsTrue(store.HasOwner("1"));
+            Assert.IsFalse(store.HasOwner("2"));
+        }
     }
 }

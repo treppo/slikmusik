@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using SlikMusik.Authorization;
 using SlikMusik.Core;
 
 namespace SlikMusik.Controllers
@@ -8,12 +9,14 @@ namespace SlikMusik.Controllers
         private readonly StoreUserRequestListener userRequestListener =
             new StoreClerk(new EfInventory(new EfDbContext()));
 
+        [StoreOwnerAuthorization]
         public ActionResult Create(int storeId)
         {
             return View(new Merchandize() {StoreId = storeId});
         }
 
         [HttpPost]
+        [StoreOwnerAuthorization]
         public ActionResult Create(Merchandize merch)
         {
             if (ModelState.IsValid)

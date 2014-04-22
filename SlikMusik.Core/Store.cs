@@ -19,5 +19,10 @@ namespace SlikMusik.Core
         {
             Inventory = new List<Merchandize>();
         }
+
+        public bool HasOwner(string userId)
+        {
+            return UserId == userId;
+        }
     }
 }
