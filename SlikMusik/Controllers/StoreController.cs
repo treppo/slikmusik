@@ -24,6 +24,7 @@ namespace SlikMusik.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [Authorize]
         public ActionResult OpenUp(Store store)
         {
@@ -52,6 +53,7 @@ namespace SlikMusik.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [StoreOwnerAuthorization]
         public ActionResult Configure(Store store)
         {

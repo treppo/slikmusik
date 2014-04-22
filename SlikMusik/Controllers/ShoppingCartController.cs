@@ -9,6 +9,7 @@ namespace SlikMusik.Controllers
             new StoreClerk(new EfInventory(new EfDbContext()));
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(int id)
         {
             userRequestListener.AddToShoppingCart(ShoppingCart, id);

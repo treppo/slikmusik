@@ -16,6 +16,7 @@ namespace SlikMusik.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [StoreOwnerAuthorization]
         public ActionResult Create(Merchandize merch)
         {
