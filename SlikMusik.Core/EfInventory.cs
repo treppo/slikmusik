@@ -4,6 +4,8 @@
     {
         private readonly EfDbContext context;
 
+        public EfInventory() : this(new EfDbContext()) { }
+
         public EfInventory(EfDbContext context)
         {
             this.context = context;

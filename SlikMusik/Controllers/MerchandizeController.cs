@@ -7,7 +7,7 @@ namespace SlikMusik.Controllers
     public class MerchandizeController : Controller
     {
         private readonly StoreUserRequestListener userRequestListener =
-            new StoreClerk(new EfInventory(new EfDbContext()));
+            new StoreClerk(new EfInventory());
 
         [StoreOwnerAuthorization]
         public ActionResult Create(int storeId)
