@@ -4,11 +4,16 @@ namespace SlikMusik.Core
 {
     public class SessionShoppingCart : ShoppingCart
     {
-        private List<Merchandize> content = new List<Merchandize>();
+        private readonly List<Merchandize> content = new List<Merchandize>();
 
         public IEnumerable<Merchandize> Content
         {
             get { return content; }
+        }
+
+        public void Remove(int id)
+        {
+            content.RemoveAll(merch => merch.Id == id);
         }
 
         public static ShoppingCart From(ShoppingCart cart)

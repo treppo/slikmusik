@@ -6,5 +6,6 @@ namespace SlikMusik.Core
     {
         void Add(Merchandize merch);
         IEnumerable<Merchandize> Content { get; }
+        void Remove(int id);
     }
 }

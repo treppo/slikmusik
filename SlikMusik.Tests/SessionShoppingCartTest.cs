@@ -38,5 +38,17 @@ namespace SlikMusik.Tests
             Assert.Contains(merch1, cart.Content.ToList());
             Assert.Contains(merch2, cart.Content.ToList());
         }
+
+        [Test]
+        public void MerchandizeCanBeRemoved()
+        {
+            var merch = new Merchandize {Id = 1};
+            var cart = new SessionShoppingCart();
+            cart.Add(merch);
+
+            cart.Remove(1);
+
+            Assert.IsEmpty(cart.Content);
+        }
     }
 }

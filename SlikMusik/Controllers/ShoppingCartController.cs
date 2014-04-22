@@ -20,6 +20,14 @@ namespace SlikMusik.Controllers
             return View(ShoppingCart);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Remove(int id)
+        {
+            ShoppingCart.Remove(id);
+            return RedirectToAction("Show");
+        }
+
         private ShoppingCart ShoppingCart
         {
             get

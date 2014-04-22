@@ -9,6 +9,14 @@
 <ul>
     @foreach (var item in Model.Content)
     {
-        <li>@item.Name - @item.Price.ToString("C")</li>
+        <li>
+            @item.Name - @item.Price.ToString("C")
+            @using (Html.BeginForm("Remove", "ShoppingCart")) {
+                @Html.AntiForgeryToken()
+                
+                @Html.Hidden("id", item.Id)
+                <button type="submit">Remove</button>
+            }
+        </li>
     }
 </ul>
