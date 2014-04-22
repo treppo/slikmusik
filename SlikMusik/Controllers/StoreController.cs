@@ -7,7 +7,7 @@ namespace SlikMusik.Controllers
 {
     public class StoreController : Controller
     {
-        private readonly StoreRegistry storeRegistry = new EfStoreRegistry(new EfDbContext());
+        private readonly StoreRegistry storeRegistry = EfStoreRegistry.Create();
 
         public ActionResult Visit(int id)
         {

@@ -49,6 +49,15 @@ namespace SlikMusik.Tests
             Assert.AreEqual("Bar", storeRegistry.FindStore(1).Name);
         }
 
+        [Test]
+        public void CreatesOnlyOneInstance()
+        {
+            var instance = EfStoreRegistry.Create(context);
+            var instance2 = EfStoreRegistry.Create(context);
+
+            Assert.AreEqual(instance, instance2);
+        }
+
         private Store OpenUpStore()
         {
             var store = new Store {Id = 1, Name = "Foo", UserId = "1"};

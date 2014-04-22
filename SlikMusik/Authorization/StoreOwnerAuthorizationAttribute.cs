@@ -38,7 +38,7 @@ namespace SlikMusik.Authorization
 
         private static Store CurrentStoreFrom(string storeId)
         {
-            var registry = new EfStoreRegistry(new EfDbContext());
+            var registry = EfStoreRegistry.Create();
             return registry.FindStore(Int32.Parse(storeId));
         }
     }

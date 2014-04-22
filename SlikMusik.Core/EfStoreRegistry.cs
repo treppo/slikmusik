@@ -6,6 +6,18 @@ namespace SlikMusik.Core
     public class EfStoreRegistry : StoreRegistry
     {
         readonly EfDbContext context;
+        private static EfStoreRegistry instance;
+
+        public static EfStoreRegistry Create()
+        {
+            return Create(new EfDbContext());
+        }
+
+        public static EfStoreRegistry Create(EfDbContext context)
+        {
+            instance = instance ?? new EfStoreRegistry(context);
+            return instance;
+        }
 
         public EfStoreRegistry(EfDbContext context)
         {
