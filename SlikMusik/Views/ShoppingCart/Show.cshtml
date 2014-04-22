@@ -9,6 +9,6 @@
 <ul>
     @foreach (var item in Model.Content)
     {
-        <li>@item.Name</li>
+        <li>@item.Name - @item.Price.ToString("C")</li>
     }
 </ul>
