@@ -12,6 +12,8 @@ namespace SlikMusik.Controllers
         public ActionResult Visit(int id)
         {
             var store = storeRegistry.FindStore(id);
+            ViewBag.IsStoreOwner = store.HasOwner(HttpContext.User.Identity.GetUserId());
+
             return View(store);
         }
 

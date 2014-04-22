@@ -15,4 +15,7 @@
     }
 </ul>
 
-@Html.ActionLink("Configure", "Configure", new {id = Model.Id}, new {@class = "button"})
+@if (ViewBag.IsStoreOwner)
+{
+    @Html.ActionLink("Configure", "Configure", new { id = Model.Id }, new { @class = "button" })
+}
